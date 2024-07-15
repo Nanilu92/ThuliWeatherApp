@@ -36,7 +36,7 @@ function formatDate(date) {
     minutes = `0${minutes}`;
   }
 
-  return `${Day} ${hours}:${minutes}`;
+  return `${day} ${hours}:${minutes}`;
 }
 
 function searchCity(city) {
