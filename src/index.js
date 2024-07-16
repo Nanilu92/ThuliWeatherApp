@@ -73,14 +73,14 @@ function displayForecast(response) {
           day.condition.icon_url
     }" class="weather-forecast-icon" />
     <div class="weather-forecast-temperature">
-      <span class="weather-forecast-temperature-max">${Math.round(day.tempersture.maximum)}°</span>
-      <span class="weather-forecast-temperature-max">${Math.round(day.tempersture.min)}°</span>
+      <span class="weather-forecast-temperature-max">${Math.round(day.temperature.maximum)}°</span>
+      <span class="weather-forecast-temperature-max">${Math.round(day.temperature.min)}°</span>
       </div>
       </div>
       `;
   }
 });
-let forecast = document.querySelector("#forecast);
+let forecast = document.querySelector("#forecast); {
 forecast.innerHTML = forecastHTML;
     }
 
