@@ -17,7 +17,6 @@ function refreshWeather(response) {
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" 
   alt="weather-icon"
   class="weather-app-icon" />`;
-
 }
 
 function formatDate(date) {
@@ -63,29 +62,27 @@ function getForecast(city) {
 }
 function displayForecast(response) {
   let forecastHTML = "";
-  response.data.daily.forEach(function(day, index) {
+  response.data.daily.forEach(function (day, index) {
     if (index < 5) {
       forecastHTML =
-      forecast + 
-      `  
+        forecast +
+        `  
       <div class="weather-forecast-single-day">
         <div class="weather-forecast-date">${formatDay(day.time)}</div>
-        <img src="${
-          day.condition.icon_url
-    }" class="weather-forecast-icon" />
+        <img src="${day.condition.icon_url}" class="weather-forecast-icon" />
     <div class="weather-forecast-temperature">
       <span class="weather-forecast-temperature-max">${Math.round(day.temperature.maximum)}°</span>
       <span class="weather-forecast-temperature-max">${Math.round(day.temperature.min)}°</span>
       </div>
       </div>
       `;
-  }
-});
-let forecast = document.querySelector("#forecast"); 
-forecast.innerHTML = forecastHTML;
-    
+    }
+  });
+  let forecast = document.querySelector("#forecast");
+  forecast.innerHTML = forecastHTML;
+}
 
 let searchFormElement = document.querySelector("#search-form");
-searchFormElement.addEventListener("submit", handleSearchSubmit);
+searchFormElement.addEventListener("submit", handleSearch);
 
 searchCity("Mthatha");
