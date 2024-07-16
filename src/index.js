@@ -63,7 +63,7 @@ function getForecast(city) {
 }
 function displayForecast(response) {
   let forecastHTML = "";
-  response.data.daily.forEach(function(day, index) }
+  response.data.daily.forEach(function(day, index) {
     if (index < 5) {
       forecastHTML =
       forecast + 
@@ -74,8 +74,8 @@ function displayForecast(response) {
           day.condition.icon_url
     }" class="weather-forecast-icon" />
     <div class="weather-forecast-temperature">
-      <span class="weather-forecast-temperature-max">${Math.round(day.temperature.maximum)}°C</span>
-      <span class="weather-forecast-temperature-max">${Math.round(day.temperature.min)}°C</span>
+      <span class="weather-forecast-temperature-max">${Math.round(day.temperature.maximum)}°</span>
+      <span class="weather-forecast-temperature-max">${Math.round(day.temperature.min)}°</span>
       </div>
       </div>
       `;
