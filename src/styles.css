@@ -8,7 +8,7 @@ a {
 }
 
 .weather-app {
-  background: aliceblue;
+  background: burlywood;
   max-width: 600px;
   margin: 45px auto;
   padding: 30px;
@@ -76,7 +76,7 @@ main {
   height: 88px;
 }
 
-.weather-app-temperature {
+.weather-app-temperature-value {
   font-size: 88px;
   line-height: 88px;
   font-weight: bold;

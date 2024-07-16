@@ -11,8 +11,8 @@ function refreshWeather(response) {
   cityElement.innerHTML = response.data.city;
   timeElement.innerHTML = formatDate(date);
   descriptionElement.innerHTML = response.data.condition.description;
-  humidityElement.innerHTML = response.data.temperature.humidity + "%";
-  windSpeedElement.innerHTML = response.data.wind.speed + "km/h";
+  humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
+  windSpeedElement.innerHTML = `${response.data.wind.speed}km/h`;
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" 
   alt="weather-icon"
@@ -47,8 +47,6 @@ function searchCity(city) {
 function handleSearchSubmit(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-form-input");
-  // let cityElement = document.querySelector("#city");
-  //cityElement.innerHTML = searchInput.value;
   searchCity(searchInput.value);
 }
 function formatDay(timestamp) {
@@ -67,12 +65,12 @@ function displayForecast(response) {
   response.data.daily.forEach(function (day, index) {
     if (index < 5) {
       forecastHTML =
-        forecast +
+        forecastHTML +
         `  
       <div class="weather-forecast-day">
         <div class="weather-forecast-date">${formatDay(day.time)}</div>
         <img src="${day.condition.icon_url}" class="weather-forecast-icon" />
-    <div class="weather-forecast-temperature">
+    <div class="weather-forecast-temperatures">
       <div class="weather-forecast-temperature">
       <strong>${Math.round(day.temperature.maximum)}°</strong.</div>
       <div class="weather-forecast-temperature">${" "}${Math.round(day.temperature.minimum)}°</div>
@@ -86,19 +84,6 @@ function displayForecast(response) {
 }
 
 let searchFormElement = document.querySelector("#search-form");
-searchFormElement.addEventListener("submit", handleSearch);
+searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Mthatha");
-//<div class="row">
-// <div class="col-2">
-// <div class="weather-forecast-date">tue</div>
-// img//src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
-// alt=""
-// width="40"
-// />
-// <div class="weather-forecast-temps">
-// <span class="weather-forecast-temp-max">20&deg </span>
-// <span class="weather-forecast-temp-min">18&deg </span>
-// </div>
-// <div>
-//</div>
