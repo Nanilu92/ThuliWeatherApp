@@ -47,6 +47,8 @@ function searchCity(city) {
 function handleSearchSubmit(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-form-input");
+  // let cityElement = document.querySelector("#city");
+  //cityElement.innerHTML = searchInput.value;
   searchCity(searchInput.value);
 }
 function formatDay(timestamp) {
@@ -67,22 +69,36 @@ function displayForecast(response) {
       forecastHTML =
         forecast +
         `  
-      <div class="weather-forecast-single-day">
+      <div class="weather-forecast-day">
         <div class="weather-forecast-date">${formatDay(day.time)}</div>
         <img src="${day.condition.icon_url}" class="weather-forecast-icon" />
     <div class="weather-forecast-temperature">
-      <span class="weather-forecast-temperature-max">${Math.round(day.temperature.maximum)}°</span>
-      <span class="weather-forecast-temperature-max">${Math.round(day.temperature.min)}°</span>
+      <div class="weather-forecast-temperature">
+      <strong>${Math.round(day.temperature.maximum)}°</strong.</div>
+      <div class="weather-forecast-temperature">${" "}${Math.round(day.temperature.minimum)}°</div>
       </div>
       </div>
       `;
     }
   });
-  let forecast = document.querySelector("#forecast");
-  forecast.innerHTML = forecastHTML;
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = forecastHTML;
 }
 
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearch);
 
 searchCity("Mthatha");
+//<div class="row">
+// <div class="col-2">
+// <div class="weather-forecast-date">tue</div>
+// img//src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+// alt=""
+// width="40"
+// />
+// <div class="weather-forecast-temps">
+// <span class="weather-forecast-temp-max">20&deg </span>
+// <span class="weather-forecast-temp-min">18&deg </span>
+// </div>
+// <div>
+//</div>
