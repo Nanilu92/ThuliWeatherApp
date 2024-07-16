@@ -67,6 +67,7 @@ function displayForecast(response) {
     if (index < 5) {
       forecastHTML =
       forecast + 
+        }
       <div class="weather-forecast-single-day">
         <div class="weather-forecast-date">${formatDay(day.time)}</div>
         <img src="${
